@@ -1,0 +1,429 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Rajkumar S — Site Reliability Engineer</title>
+  <meta name="description" content="Site Reliability Engineer with 10+ years in IT: Kubernetes, Helm, Docker, Jenkins and GitLab CI/CD, SaltStack, certificate management and observability. Chennai, India." />
+  <meta property="og:type" content="profile" />
+  <meta property="og:title" content="Rajkumar S — Site Reliability Engineer" />
+  <meta property="og:description" content="Kubernetes · Helm · CI/CD · SaltStack · Certificates · Observability. 10+ years in IT, 6+ years SRE/DevOps." />
+  <meta property="og:image" content="https://rajkumarsethuramalingam.github.io/og.png" />
+  <meta property="og:url" content="https://rajkumarsethuramalingam.github.io/" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="icon" href="favicon.svg" type="image/svg+xml" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet" />
+  <script type="application/ld+json">
+  {"@context":"https://schema.org","@type":"Person","name":"Rajkumar S","jobTitle":"Site Reliability Engineer",
+   "worksFor":{"@type":"Organization","name":"Fiserv"},"address":{"@type":"PostalAddress","addressLocality":"Chennai","addressCountry":"IN"},
+   "email":"mailto:rajkumarskgisl@gmail.com","url":"https://rajkumarsethuramalingam.github.io/",
+   "sameAs":["https://www.linkedin.com/in/rajkumar-s-77445280/","https://github.com/RajkumarSethuramalingam"],
+   "alumniOf":"KGISL Institute of Technology and Engineering",
+   "knowsAbout":["Site Reliability Engineering","Kubernetes","Helm","Docker","Jenkins","GitLab CI","SaltStack","Terraform","Prometheus","Grafana","Certificate management"]}
+  </script>
+  <style>
+    :root {
+      --bg: #070b14; --bg2: #0c1322; --card: #101a2e; --line: #1d2a44; --text: #e6ebf5; --muted: #93a0b8;
+      --accent: #38bdf8; --accent2: #a78bfa; --ok: #4ade80; --warn: #fbbf24;
+      --mono: "JetBrains Mono", ui-monospace, SFMono-Regular, Menlo, monospace;
+      --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+      --max: 1160px;
+    }
+    * { box-sizing: border-box; }
+    html { scroll-behavior: smooth; }
+    body { margin: 0; background: var(--bg); color: var(--text); font: 16px/1.65 var(--sans); -webkit-font-smoothing: antialiased; overflow-x: hidden; }
+    a { color: var(--accent); }
+    .wrap { max-width: var(--max); margin: 0 auto; padding: 0 clamp(16px, 4vw, 32px); }
+    section { padding: clamp(64px, 9vw, 110px) 0; position: relative; }
+    h1, h2, h3 { line-height: 1.15; margin: 0; letter-spacing: -.02em; }
+    h2 { font-size: clamp(1.8rem, 1.2rem + 2vw, 2.6rem); margin-bottom: 12px; }
+    .kicker { font: 600 .78rem/1 var(--mono); letter-spacing: .14em; text-transform: uppercase; color: var(--accent); display: inline-flex; gap: 8px; align-items: center; margin-bottom: 14px; }
+    .kicker::before { content: ''; width: 22px; height: 1px; background: currentColor; }
+    .sub { color: var(--muted); max-width: 62ch; margin: 0 0 40px; }
+    :focus-visible { outline: 2px solid var(--accent); outline-offset: 3px; border-radius: 4px; }
+
+    /* background grid + glow */
+    .bg-grid { position: fixed; inset: 0; z-index: -1; pointer-events: none;
+      background-image: linear-gradient(rgba(56,189,248,.05) 1px, transparent 1px), linear-gradient(90deg, rgba(56,189,248,.05) 1px, transparent 1px);
+      background-size: 48px 48px; mask-image: radial-gradient(ellipse at 50% 0%, #000 0%, transparent 70%); }
+    .glow { position: absolute; width: 640px; height: 640px; border-radius: 50%; filter: blur(110px); opacity: .32; z-index: -1; pointer-events: none; }
+
+    /* nav */
+    header { position: sticky; top: 0; z-index: 20; backdrop-filter: blur(12px); background: rgba(7,11,20,.72); border-bottom: 1px solid rgba(29,42,68,.6); }
+    .nav { display: flex; align-items: center; justify-content: space-between; height: 64px; gap: 16px; }
+    .brand { display: flex; align-items: center; gap: 10px; color: var(--text); text-decoration: none; font-weight: 700; }
+    .brand .mk { width: 34px; height: 34px; border-radius: 9px; display: grid; place-items: center; font: 700 .9rem var(--mono); color: #04121d;
+      background: linear-gradient(135deg, var(--accent), var(--accent2)); }
+    .nav ul { list-style: none; display: flex; gap: clamp(14px, 2.4vw, 28px); margin: 0; padding: 0; }
+    .nav ul a { color: var(--muted); text-decoration: none; font-size: .92rem; }
+    .nav ul a:hover { color: var(--text); }
+    .btn { display: inline-flex; align-items: center; gap: 8px; padding: .7em 1.2em; border-radius: 10px; font-weight: 600; font-size: .95rem; text-decoration: none; border: 1px solid var(--line); color: var(--text); background: var(--card); transition: transform .2s, border-color .2s, box-shadow .2s; }
+    .btn:hover { transform: translateY(-2px); border-color: var(--accent); box-shadow: 0 10px 30px rgba(56,189,248,.15); }
+    .btn.primary { background: linear-gradient(135deg, var(--accent), var(--accent2)); color: #050b16; border: 0; }
+    @media (max-width: 760px) { .nav ul { display: none; } }
+
+    /* hero */
+    .hero { padding-top: clamp(48px, 8vw, 96px); }
+    .hero-grid { display: grid; grid-template-columns: 1.05fr 1fr; gap: clamp(28px, 5vw, 64px); align-items: center; }
+    .status { display: inline-flex; align-items: center; gap: 10px; font: 500 .82rem var(--mono); color: var(--ok); background: rgba(74,222,128,.08); border: 1px solid rgba(74,222,128,.25); padding: .45em .9em; border-radius: 999px; margin-bottom: 22px; }
+    .dot { width: 8px; height: 8px; border-radius: 50%; background: var(--ok); box-shadow: 0 0 0 0 rgba(74,222,128,.6); animation: ping 2s infinite; }
+    @keyframes ping { 70% { box-shadow: 0 0 0 10px rgba(74,222,128,0); } 100% { box-shadow: 0 0 0 0 rgba(74,222,128,0); } }
+    .hero h1 { font-size: clamp(2.6rem, 1.4rem + 5vw, 4.6rem); font-weight: 800; }
+    .grad { background: linear-gradient(100deg, var(--accent), var(--accent2) 60%, #f0abfc); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .role { font-size: clamp(1.1rem, .9rem + .8vw, 1.45rem); color: var(--text); margin: 14px 0 10px; font-weight: 500; }
+    .role .rot { color: var(--accent); font-family: var(--mono); }
+    .hero p.lead { color: var(--muted); max-width: 52ch; margin: 0 0 28px; font-size: 1.05rem; }
+    .cta { display: flex; gap: 12px; flex-wrap: wrap; }
+    .meta { display: flex; gap: 18px; flex-wrap: wrap; margin-top: 26px; color: var(--muted); font-size: .9rem; }
+    .meta span { display: inline-flex; align-items: center; gap: 6px; }
+
+    /* terminal */
+    .term { background: #0a1020; border: 1px solid var(--line); border-radius: 14px; box-shadow: 0 30px 80px rgba(0,0,0,.5), 0 0 0 1px rgba(56,189,248,.06) inset; overflow: hidden; transform: perspective(1200px) rotateY(-6deg) rotateX(2deg); transition: transform .6s; }
+    .term:hover { transform: none; }
+    .term-bar { display: flex; align-items: center; gap: 8px; padding: 12px 14px; background: #0d1528; border-bottom: 1px solid var(--line); }
+    .term-bar i { width: 11px; height: 11px; border-radius: 50%; display: block; }
+    .term-bar span { margin-left: 8px; font: .78rem var(--mono); color: var(--muted); }
+    .term pre { margin: 0; padding: 18px 18px 22px; font: .84rem/1.75 var(--mono); color: #cbd5e1; min-height: 330px; white-space: pre-wrap; word-break: break-word; }
+    .term .p { color: var(--accent2); } .term .c { color: var(--text); } .term .o { color: var(--ok); } .term .w { color: var(--warn); } .term .m { color: #64748b; }
+    .cursor { display: inline-block; width: 8px; height: 1.05em; background: var(--accent); vertical-align: -2px; animation: blink 1s steps(1) infinite; }
+    @keyframes blink { 50% { opacity: 0; } }
+    @media (max-width: 900px) { .hero-grid { grid-template-columns: 1fr; } .term { transform: none; } }
+
+    /* stats */
+    .stats { display: grid; grid-template-columns: repeat(4, 1fr); gap: 1px; background: var(--line); border: 1px solid var(--line); border-radius: 16px; overflow: hidden; margin-top: clamp(48px, 7vw, 80px); }
+    .stats div { background: var(--bg2); padding: 26px 22px; }
+    .stats b { display: block; font-size: clamp(1.8rem, 1.2rem + 2vw, 2.6rem); font-weight: 800; letter-spacing: -.03em; }
+    .stats span { color: var(--muted); font-size: .9rem; }
+    @media (max-width: 760px) { .stats { grid-template-columns: 1fr 1fr; } }
+
+    /* what I do */
+    .cards { display: grid; grid-template-columns: repeat(3, 1fr); gap: 18px; }
+    .card { position: relative; background: linear-gradient(180deg, var(--card), var(--bg2)); border: 1px solid var(--line); border-radius: 16px; padding: 26px; overflow: hidden; transition: transform .3s, border-color .3s; }
+    .card::before { content: ''; position: absolute; inset: 0; background: radial-gradient(400px circle at var(--mx, 50%) var(--my, 0%), rgba(56,189,248,.12), transparent 40%); opacity: 0; transition: opacity .3s; }
+    .card:hover { transform: translateY(-4px); border-color: #2c4470; }
+    .card:hover::before { opacity: 1; }
+    .ic { width: 44px; height: 44px; border-radius: 12px; display: grid; place-items: center; background: rgba(56,189,248,.1); color: var(--accent); margin-bottom: 16px; }
+    .card h3 { font-size: 1.1rem; margin-bottom: 8px; }
+    .card p { color: var(--muted); margin: 0; font-size: .95rem; }
+    @media (max-width: 900px) { .cards { grid-template-columns: 1fr 1fr; } }
+    @media (max-width: 600px) { .cards { grid-template-columns: 1fr; } }
+
+    /* skills */
+    .skills { display: grid; grid-template-columns: repeat(2, 1fr); gap: 16px; }
+    .sk { background: var(--bg2); border: 1px solid var(--line); border-radius: 14px; padding: 20px 22px; }
+    .sk h3 { font: 600 .8rem var(--mono); letter-spacing: .1em; text-transform: uppercase; color: var(--muted); margin-bottom: 12px; }
+    .chips { display: flex; flex-wrap: wrap; gap: 8px; }
+    .chip { font-size: .88rem; padding: .35em .8em; border-radius: 999px; border: 1px solid var(--line); background: #0e1730; transition: border-color .2s, color .2s, transform .2s; }
+    .chip:hover { border-color: var(--accent); color: var(--accent); transform: translateY(-2px); }
+    .chip.hot { border-color: rgba(56,189,248,.45); color: #bae6fd; }
+    @media (max-width: 760px) { .skills { grid-template-columns: 1fr; } }
+
+    /* pipeline (career as a CI/CD pipeline) */
+    .pipe { display: flex; align-items: center; gap: 0; margin: 0 0 44px; overflow-x: auto; padding-bottom: 6px; }
+    .stage { flex: 1; min-width: 150px; text-align: center; position: relative; }
+    .stage .node { width: 46px; height: 46px; margin: 0 auto 10px; border-radius: 50%; display: grid; place-items: center; background: var(--card); border: 2px solid var(--ok); color: var(--ok); font: 700 .9rem var(--mono); position: relative; z-index: 1; }
+    .stage.run .node { border-color: var(--accent); color: var(--accent); box-shadow: 0 0 0 6px rgba(56,189,248,.12); }
+    .stage small { display: block; color: var(--muted); font-size: .8rem; }
+    .stage b { font-size: .95rem; }
+    .stage:not(:last-child)::after { content: ''; position: absolute; top: 23px; left: calc(50% + 23px); right: calc(-50% + 23px); height: 2px; background: linear-gradient(90deg, var(--ok), var(--ok)); }
+    .stage.done-to-run::after { background: linear-gradient(90deg, var(--ok), var(--accent)); }
+
+    /* timeline */
+    .tl { position: relative; padding-left: 28px; }
+    .tl::before { content: ''; position: absolute; left: 7px; top: 6px; bottom: 6px; width: 2px; background: linear-gradient(var(--accent), var(--accent2), transparent); }
+    .job { position: relative; background: var(--bg2); border: 1px solid var(--line); border-radius: 16px; padding: 24px 26px; margin-bottom: 18px; }
+    .job::before { content: ''; position: absolute; left: -27px; top: 28px; width: 14px; height: 14px; border-radius: 50%; background: var(--bg); border: 3px solid var(--accent); }
+    .job-h { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; margin-bottom: 6px; }
+    .job h3 { font-size: 1.2rem; }
+    .job h3 span { color: var(--accent); }
+    .when { font: .82rem var(--mono); color: var(--muted); }
+    .job p.summary { color: var(--muted); margin: 0 0 12px; }
+    .job ul { margin: 0; padding-left: 18px; color: #c6cfdf; }
+    .job li { margin: 6px 0; }
+    .job li b { color: var(--text); }
+
+    /* AI + education */
+    .two { display: grid; grid-template-columns: 1fr 1fr; gap: 18px; }
+    .panel { background: linear-gradient(135deg, rgba(56,189,248,.08), rgba(167,139,250,.08)); border: 1px solid var(--line); border-radius: 16px; padding: 28px; }
+    .panel h3 { font-size: 1.2rem; margin-bottom: 10px; }
+    .panel p, .panel li { color: var(--muted); }
+    .panel ul { padding-left: 18px; margin: 10px 0 0; }
+    @media (max-width: 760px) { .two { grid-template-columns: 1fr; } }
+
+    /* contact */
+    .contact { text-align: center; }
+    .contact h2 { font-size: clamp(2rem, 1.3rem + 3vw, 3.2rem); }
+    .contact .cta { justify-content: center; margin-top: 26px; }
+    footer { border-top: 1px solid var(--line); padding: 26px 0; color: var(--muted); font-size: .85rem; }
+    footer .wrap { display: flex; justify-content: space-between; gap: 12px; flex-wrap: wrap; }
+
+    /* reveal on scroll */
+    .js .rv { opacity: 0; transform: translateY(26px); transition: opacity .7s ease, transform .7s cubic-bezier(.2,.7,.2,1); transition-delay: calc(var(--d, 0) * 80ms); }
+    .js .rv.in { opacity: 1; transform: none; }
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .js .rv { opacity: 1; transform: none; transition: none; }
+      .dot, .cursor { animation: none; }
+      .term { transform: none; }
+    }
+  </style>
+</head>
+<body>
+  <div class="bg-grid" aria-hidden="true"></div>
+  <a class="btn" href="#main" style="position:absolute;left:-999px" onfocus="this.style.left='12px'" onblur="this.style.left='-999px'">Skip to content</a>
+
+  <header>
+    <div class="wrap nav">
+      <a class="brand" href="#top" aria-label="Rajkumar S — home"><span class="mk">RS</span><span>Rajkumar S</span></a>
+      <nav aria-label="Main">
+        <ul>
+          <li><a href="#work">What I do</a></li>
+          <li><a href="#skills">Skills</a></li>
+          <li><a href="#experience">Experience</a></li>
+          <li><a href="#contact">Contact</a></li>
+        </ul>
+      </nav>
+      <a class="btn primary" href="Rajkumar_S_SRE.pdf" download>Resume ↓</a>
+    </div>
+  </header>
+
+  <main id="main">
+    <!-- ======================================================= hero -->
+    <section class="hero" id="top">
+      <div class="glow" style="background:#38bdf8;top:-200px;left:-200px" aria-hidden="true"></div>
+      <div class="glow" style="background:#a78bfa;top:0;right:-260px" aria-hidden="true"></div>
+      <div class="wrap">
+        <div class="hero-grid">
+          <div>
+            <span class="status"><span class="dot"></span>Open to SRE / DevOps opportunities</span>
+            <h1>Hi, I'm <span class="grad">Rajkumar S</span></h1>
+            <p class="role">Site Reliability Engineer · <span class="rot" id="rot">Kubernetes &amp; Helm</span></p>
+            <p class="lead">I make releases boring and production calm. 10+ years in IT, 6+ years in SRE/DevOps at Fiserv — shipping enterprise
+              releases on Kubernetes, automating with Jenkins, GitLab and SaltStack, and keeping certificates and services healthy from DEV to PROD.</p>
+            <div class="cta">
+              <a class="btn primary" href="#contact">Get in touch</a>
+              <a class="btn" href="https://www.linkedin.com/in/rajkumar-s-77445280/" target="_blank" rel="noopener">LinkedIn ↗</a>
+              <a class="btn" href="Rajkumar_S_SRE.pdf" download>Download resume</a>
+            </div>
+            <div class="meta"><span>📍 Chennai, India</span><span>🏢 Fiserv</span><span>🎓 B.E. Computer Science</span></div>
+          </div>
+
+          <div class="term" role="img" aria-label="Terminal showing a Helm release, a Kubernetes rollout and a certificate check, all successful">
+            <div class="term-bar"><i style="background:#f87171"></i><i style="background:#fbbf24"></i><i style="background:#4ade80"></i><span>rajkumar@sre: ~/releases</span></div>
+            <pre id="term" aria-hidden="true"></pre>
+          </div>
+        </div>
+
+        <div class="stats rv">
+          <div><b data-count="10">10+</b><span>years in IT</span></div>
+          <div><b data-count="6">6+</b><span>years SRE / DevOps</span></div>
+          <div><b data-count="5">5</b><span>environments: DEV → PROD</span></div>
+          <div><b data-count="30">30+</b><span>tools in daily use</span></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================= what I do -->
+    <section id="work">
+      <div class="wrap">
+        <span class="kicker">What I do</span>
+        <h2>Reliable releases, end to end</h2>
+        <p class="sub">From the commit to production: building the pipelines, packaging the release, rolling it out on Kubernetes and keeping it healthy.</p>
+        <div class="cards">
+          <article class="card rv" style="--d:0"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l3 7h7l-5.5 4.5L18 21l-6-4-6 4 1.5-7.5L2 9h7z"/></svg></div>
+            <h3>Release management</h3><p>Manage application artifacts and releases across DEV, QA, UAT, Performance and PROD, with deployment stability first.</p></article>
+          <article class="card rv" style="--d:1"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="6" cy="6" r="3"/><circle cx="18" cy="18" r="3"/><path d="M6 9v3a6 6 0 0 0 6 6h3"/></svg></div>
+            <h3>CI/CD pipelines</h3><p>Design and improve Jenkins, GitLab CI and Maven pipelines, including the build and deploy scripts shared across environments.</p></article>
+          <article class="card rv" style="--d:2"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2l8.66 5v10L12 22l-8.66-5V7z"/><circle cx="12" cy="12" r="3"/></svg></div>
+            <h3>Kubernetes &amp; Helm</h3><p>Build Helm 3 charts that standardise releases; deploy, operate and troubleshoot containerised apps on Docker and Kubernetes.</p></article>
+          <article class="card rv" style="--d:3"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="4" y="10" width="16" height="11" rx="2"/><path d="M8 10V7a4 4 0 0 1 8 0v3"/></svg></div>
+            <h3>Certificate management</h3><p>Run the certificate lifecycle with Venafi and Cert-Manager, so services stay secure and never go down from an expired certificate.</p></article>
+          <article class="card rv" style="--d:4"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 15l4-4 3 3 5-6"/></svg></div>
+            <h3>Observability</h3><p>Monitor and troubleshoot with Prometheus, Grafana, Kibana and Elasticsearch / Filebeat to catch problems early.</p></article>
+          <article class="card rv" style="--d:5"><div class="ic"><svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 9v4M12 17h.01"/><path d="M10.3 3.9L1.8 18a2 2 0 0 0 1.7 3h17a2 2 0 0 0 1.7-3L13.7 3.9a2 2 0 0 0-3.4 0z"/></svg></div>
+            <h3>Incident response</h3><p>Debug production issues and drive resolution with development, DevOps and support teams to restore service fast.</p></article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================= skills -->
+    <section id="skills" style="background:linear-gradient(180deg,transparent,rgba(12,19,34,.7),transparent)">
+      <div class="wrap">
+        <span class="kicker">Skills</span>
+        <h2>The toolbox</h2>
+        <p class="sub">Tools I use hands-on in day-to-day SRE work. Highlighted ones are my strongest.</p>
+        <div class="skills">
+          <div class="sk rv"><h3>Containers &amp; Kubernetes</h3><div class="chips"><span class="chip hot">Kubernetes</span><span class="chip hot">Helm 3</span><span class="chip hot">Docker</span><span class="chip">Cert-Manager</span></div></div>
+          <div class="sk rv" style="--d:1"><h3>CI/CD &amp; Build</h3><div class="chips"><span class="chip hot">Jenkins</span><span class="chip hot">GitLab CI</span><span class="chip">Maven</span><span class="chip">Gradle</span><span class="chip">Git</span><span class="chip">Artifactory</span><span class="chip">Nexus</span><span class="chip">Harbor</span></div></div>
+          <div class="sk rv"><h3>Configuration &amp; Automation</h3><div class="chips"><span class="chip hot">SaltStack</span><span class="chip">Terraform</span><span class="chip hot">Shell scripting</span><span class="chip">Workflow automation</span></div></div>
+          <div class="sk rv" style="--d:1"><h3>Observability</h3><div class="chips"><span class="chip">Prometheus</span><span class="chip">Grafana</span><span class="chip">Kibana</span><span class="chip">Elasticsearch</span><span class="chip">Filebeat</span></div></div>
+          <div class="sk rv"><h3>SRE practice</h3><div class="chips"><span class="chip hot">Release &amp; deployment automation</span><span class="chip">Production support</span><span class="chip">Incident management</span><span class="chip">SLA monitoring</span><span class="chip">Change management (CAB)</span></div></div>
+          <div class="sk rv" style="--d:1"><h3>Certificates &amp; security</h3><div class="chips"><span class="chip hot">Venafi</span><span class="chip">Cert-Manager</span><span class="chip">Certificate lifecycle</span></div></div>
+          <div class="sk rv"><h3>Programming &amp; testing</h3><div class="chips"><span class="chip">Java</span><span class="chip">Selenium</span><span class="chip">JUnit</span><span class="chip">Cucumber</span><span class="chip">JMeter</span><span class="chip">WireMock</span><span class="chip">REST / SOAP APIs</span></div></div>
+          <div class="sk rv" style="--d:1"><h3>Platforms &amp; tools</h3><div class="chips"><span class="chip">Linux</span><span class="chip">Windows</span><span class="chip">Apache</span><span class="chip">JIRA</span><span class="chip">Confluence</span><span class="chip">ServiceNow</span></div></div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================= experience -->
+    <section id="experience">
+      <div class="wrap">
+        <span class="kicker">Experience</span>
+        <h2>My career, as a pipeline</h2>
+        <p class="sub">Every stage passed — from testing payments software to running releases in production.</p>
+
+        <div class="pipe rv" aria-label="Career stages">
+          <div class="stage"><div class="node">✓</div><b>B.E. CSE</b><small>2012 – 2016</small></div>
+          <div class="stage"><div class="node">✓</div><b>Wipro</b><small>Analyst · 2016</small></div>
+          <div class="stage done-to-run"><div class="node">✓</div><b>Cognizant</b><small>Automation · 2018</small></div>
+          <div class="stage run"><div class="node">▶</div><b>Fiserv</b><small>SRE · 2020 – now</small></div>
+        </div>
+
+        <div class="tl">
+          <article class="job rv">
+            <div class="job-h"><h3>Site Reliability Engineer · <span>Fiserv</span></h3><span class="when">Jul 2020 — Present · Chennai</span></div>
+            <p class="summary">Release, deployment and platform reliability for enterprise applications across DEV, QA, UAT, Performance and PROD.</p>
+            <ul>
+              <li><b>Release management</b> — artifacts and releases across all environments, prioritising deployment stability.</li>
+              <li><b>CI/CD</b> — design and improve Jenkins, Git, Maven and GitLab pipelines, including shared build and deploy scripts.</li>
+              <li><b>Kubernetes &amp; Helm</b> — Helm 3 charts to standardise releases; operate and troubleshoot Docker / Kubernetes workloads.</li>
+              <li><b>Configuration management</b> — automate and manage Linux environments with SaltStack.</li>
+              <li><b>Certificates</b> — Venafi and Cert-Manager operations to avoid expiry-related outages.</li>
+              <li><b>Incidents &amp; observability</b> — debug production issues with Prometheus, Grafana, Kibana and Elasticsearch; restore service with dev, DevOps and support teams.</li>
+              <li><b>Process</b> — Git branching and merging for controlled releases; JIRA and Confluence; release and change management.</li>
+            </ul>
+          </article>
+          <article class="job rv">
+            <div class="job-h"><h3>Automation Tester · <span>Cognizant</span></h3><span class="when">Nov 2018 — Jun 2020 · Chennai</span></div>
+            <ul>
+              <li>Built and maintained Jenkins jobs and automation workflows for builds and deployments.</li>
+              <li>Automated test scripts with Selenium WebDriver and JUnit, improving functional coverage.</li>
+              <li>Supported incident management and SLA monitoring: P1/P2 incidents and Major Incident bridge calls.</li>
+              <li>Took part in Change Advisory Board reviews; managed ServiceNow access; mentored junior QA engineers.</li>
+            </ul>
+          </article>
+          <article class="job rv">
+            <div class="job-h"><h3>Associate Analyst · <span>Wipro</span></h3><span class="when">Sep 2016 — Nov 2018 · Chennai</span></div>
+            <ul>
+              <li>Tested payment processes with service virtualization (simulated requests and responses).</li>
+              <li>Wrote test cases from functional specifications and worked with developers to resolve defects.</li>
+              <li>Worked with Solution Engineering teams to investigate issues and improve workflows.</li>
+            </ul>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================= AI + education -->
+    <section style="padding-top:0">
+      <div class="wrap two">
+        <div class="panel rv">
+          <span class="kicker">AI-assisted engineering</span>
+          <h3>Faster scripting, debugging and docs</h3>
+          <p>I use GitHub Copilot and Claude AI daily through CLI workflows:</p>
+          <ul>
+            <li>Writing and reviewing shell scripts and pipeline code</li>
+            <li>Troubleshooting failed deployments and logs</li>
+            <li>Drafting runbooks and documentation</li>
+          </ul>
+        </div>
+        <div class="panel rv" style="--d:1">
+          <span class="kicker">Education</span>
+          <h3>B.E. Computer Science &amp; Engineering</h3>
+          <p>KGISL Institute of Technology and Engineering · 2012 – 2016</p>
+          <ul>
+            <li>Moved from automation testing into SRE / DevOps</li>
+            <li>Combines software quality, automation and operations experience</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <!-- ======================================================= contact -->
+    <section class="contact" id="contact">
+      <div class="glow" style="background:#a78bfa;left:50%;transform:translateX(-50%);bottom:-300px" aria-hidden="true"></div>
+      <div class="wrap">
+        <span class="kicker">Contact</span>
+        <h2>Let's keep your <span class="grad">production calm</span></h2>
+        <p class="sub" style="margin:12px auto 0">Open to Site Reliability Engineer and DevOps roles. The quickest way to reach me is email or LinkedIn.</p>
+        <div class="cta">
+          <a class="btn primary" href="mailto:rajkumarskgisl@gmail.com">✉ rajkumarskgisl@gmail.com</a>
+          <a class="btn" href="tel:+919600374594">☎ +91 96003 74594</a>
+          <a class="btn" href="https://www.linkedin.com/in/rajkumar-s-77445280/" target="_blank" rel="noopener">LinkedIn ↗</a>
+          <a class="btn" href="Rajkumar_S_SRE.pdf" download>Resume (PDF)</a>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="wrap"><span>© <span id="yr">2026</span> Rajkumar S · Chennai, India</span><span>Built with plain HTML &amp; CSS · deployed by GitHub Actions to GitHub Pages</span></div>
+  </footer>
+
+  <script>
+    document.documentElement.classList.add('js');
+    var reduce = matchMedia('(prefers-reduced-motion: reduce)').matches;
+    document.getElementById('yr').textContent = new Date().getFullYear();
+
+    // Terminal: type out a release, line by line.
+    var lines = [
+      ['p', '$ ', 'c', 'git tag v4.2.0 && git push --tags'],
+      ['m', '  pipeline #4821: build ✓  test ✓  scan ✓  package ✓'],
+      ['p', '$ ', 'c', 'helm upgrade --install app ./chart -n prod -f values-prod.yaml'],
+      ['o', '  Release "app" has been upgraded. Happy Helming!'],
+      ['p', '$ ', 'c', 'kubectl rollout status deploy/app -n prod'],
+      ['o', '  deployment "app" successfully rolled out'],
+      ['p', '$ ', 'c', 'kubectl get certificate -n prod'],
+      ['m', '  NAME      READY   EXPIRES'],
+      ['o', '  app-tls   True    in 87 days'],
+      ['p', '$ ', 'c', 'salt "web*" state.apply --state-output=terse'],
+      ['o', '  Succeeded: 42  Failed: 0'],
+      ['w', '  alerts firing: 0   ·   error budget: healthy'],
+    ];
+    var term = document.getElementById('term');
+    function esc(s) { return s.replace(/&/g, '&amp;').replace(/</g, '&lt;'); }
+    function lineHtml(l) { return l.length === 4 ? '<span class="' + l[0] + '">' + esc(l[1]) + '</span><span class="' + l[2] + '">' + esc(l[3]) + '</span>' : '<span class="' + l[0] + '">' + esc(l[1]) + '</span>'; }
+    if (reduce) { term.innerHTML = lines.map(lineHtml).join('\n'); }
+    else {
+      var i = 0, done = '';
+      (function next() {
+        if (i >= lines.length) { term.innerHTML = done + '<span class="cursor"></span>'; setTimeout(function () { i = 0; done = ''; next(); }, 6000); return; }
+        var l = lines[i], isCmd = l.length === 4, text = isCmd ? l[3] : l[1], k = 0;
+        (function type() {
+          var partial = isCmd ? '<span class="p">$ </span><span class="c">' + esc(text.slice(0, k)) + '</span>' : '<span class="' + l[0] + '">' + esc(text.slice(0, k)) + '</span>';
+          term.innerHTML = done + partial + '<span class="cursor"></span>';
+          if (k < text.length) { k += isCmd ? 1 : 3; setTimeout(type, isCmd ? 28 : 8); }
+          else { done += lineHtml(l) + '\n'; i++; setTimeout(next, isCmd ? 350 : 220); }
+        })();
+      })();
+    }
+
+    // Rotating specialty under the name.
+    var roles = ['Kubernetes & Helm', 'CI/CD automation', 'Release engineering', 'Certificate management', 'Observability'];
+    var rot = document.getElementById('rot'), r = 0;
+    if (!reduce) setInterval(function () { r = (r + 1) % roles.length; rot.textContent = roles[r]; }, 2400);
+
+    // Reveal on scroll + count-up numbers.
+    var io = new IntersectionObserver(function (es) {
+      es.forEach(function (e) {
+        if (!e.isIntersecting) return;
+        e.target.classList.add('in');
+        e.target.querySelectorAll('[data-count]').forEach(function (b) {
+          if (reduce) return;
+          var n = +b.dataset.count, suffix = b.textContent.replace(/\d/g, ''), t0 = performance.now();
+          (function f(t) { var p = Math.min((t - t0) / 1200, 1); b.textContent = Math.round(n * (1 - Math.pow(1 - p, 3))) + suffix; if (p < 1) requestAnimationFrame(f); })(t0);
+        });
+        io.unobserve(e.target);
+      });
+    }, { threshold: 0.15 });
+    document.querySelectorAll('.rv').forEach(function (el) { io.observe(el); });
+
+    // Card spotlight follows the mouse.
+    document.querySelectorAll('.card').forEach(function (c) {
+      c.addEventListener('pointermove', function (e) { var b = c.getBoundingClientRect(); c.style.setProperty('--mx', (e.clientX - b.left) + 'px'); c.style.setProperty('--my', (e.clientY - b.top) + 'px'); });
+    });
+  </script>
+</body>
+</html>
